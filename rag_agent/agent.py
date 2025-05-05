@@ -15,29 +15,6 @@ from embedding import Embedding
 
 load_dotenv()
 
-# def list_collections() -> dict:
-#     """Lists all Milvus collections.
-#     Returns:
-#         dict: status and result or error msg.
-#     """
-#     milvus = MilvusConnection()
-#     milvus.create_collection('test_rag')
-#     collections = milvus.list_collections()
-#     return collections
-
-# def search_information(query: str, collection_name: str) -> dict:
-#     """Searches Milvus for information related to a given city.
-
-#     Args:
-#         query (str): The query to search Milvus for.
-#         collection_name (str): The name of the Milvus collection to search.
-#     Returns:
-#         dict: status and result or error msg.
-#     """
-#     milvus = MilvusConnection()
-#     search_result = milvus.search(collection_name, query)
-#     print(f'Search result: {search_result}')
-#     return search_result
 
 class RAGAgent(AgentWithTaskManager):
     """An agent that handles generating SQL queries."""
@@ -67,7 +44,6 @@ class RAGAgent(AgentWithTaskManager):
                     ],   
                     env={
                         "PINECONE_API_KEY": os.environ.get("PINECONE_API_KEY"),
-                        "HF_TOKEN": os.environ.get("HF_TOKEN")  # Add HuggingFace token
                     }
                 )
             )
